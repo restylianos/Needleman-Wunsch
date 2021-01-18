@@ -1,13 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 const Needleman = ({ first_sequence, second_sequence, gap, sub, match, miss }) => {
-  console.log(first_sequence, second_sequence, gap, match);
-
   const seq1 = first_sequence;
   const seq2 = second_sequence;
-  gap = -8;
-  sub = -3;
-  match = 15;
 
   var m = seq1.length;
   var n = seq2.length;
@@ -59,7 +54,8 @@ const Needleman = ({ first_sequence, second_sequence, gap, sub, match, miss }) =
   const res_2 = out2;
 
   const final_seq_1 = seq1.substring(0, 0) + ' ' + seq1.substring(0, seq1.length);
-  const final_seq_2 = seq2.substring(0, 0) + ' ' + seq2.substring(0, seq2.length);
+  const final_seq_2 = seq2.substring(0, 0) + '  ' + seq2.substring(0, seq2.length);
+
   //fix arrays
   const renderedTitles_x = [...final_seq_2].map((amino, index) => {
     return (
@@ -74,13 +70,15 @@ const Needleman = ({ first_sequence, second_sequence, gap, sub, match, miss }) =
     const res = row.map((item, secondIndex) => {
       return <td key={secondIndex}>{item}</td>;
     });
-    // const renderedTtitles_y = [...final_seq_1].map((amino, aminoIndex) => {
-    //   console.log(amino);
-    //   return <th key={aminoIndex + 20}>{amino}</th>;
-    // });
+
+    const renderedTtitles_y = [...final_seq_1].map((amino, aminoIndex) => {
+      //console.log(amino);
+      return <th key={aminoIndex + 20}>{amino}</th>;
+    });
+
     return (
       <tr key={index}>
-        {/* {renderedTtitles_y} */}
+        <th>{renderedTtitles_y[index].props.children}</th>
         {res}
       </tr>
     );
