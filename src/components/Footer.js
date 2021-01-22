@@ -7,7 +7,7 @@ const Footer = () => {
     <footer className="footer" style={{ background: 'none' }}>
       <div className="content has-text-centered">
         <h4 className="title is-4">
-          Created by <a href="www.github.com/restylianos">restylianos </a>
+          Created by <a href="https://github.com/restylianos">restylianos </a>
           <FontAwesomeIcon icon={faCode} />
         </h4>
       </div>
