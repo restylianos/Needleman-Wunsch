@@ -5,6 +5,7 @@ import { BrowserRouter, Link, Route } from 'react-router-dom';
 import Smith from './Smith';
 import Particles from 'react-particles-js';
 import '../assets/css/app.css';
+import Footer from './Footer';
 
 const App = () => {
   const [firstSequence, setFirstSequence] = useState('');
@@ -36,33 +37,33 @@ const App = () => {
   const particlesOptions = {
     particles: {
       number: {
-        value: 96,
+        value: 101,
         density: {
-          enable: false,
-          value_area: 800.8649341288591,
+          enable: true,
+          value_area: 800,
         },
       },
       color: {
-        value: '#ffffff',
+        value: '#3273dc',
       },
       shape: {
         type: 'circle',
         stroke: {
-          width: 3,
+          width: 0,
           color: '#000000',
         },
         polygon: {
           nb_sides: 5,
         },
         image: {
-          src: 'https://github.com/moov2/svgs/blob/master/svgs/facebook-logo.svg',
+          src: 'img/github.svg',
           width: 100,
           height: 100,
         },
       },
       opacity: {
-        value: 0.5,
-        random: true,
+        value: 0.528570856525047,
+        random: false,
         anim: {
           enable: false,
           speed: 1,
@@ -82,10 +83,10 @@ const App = () => {
       },
       line_linked: {
         enable: true,
-        distance: 224.24218155608057,
-        color: '#000000',
+        distance: 150,
+        color: '#ffffff',
         opacity: 0.4,
-        width: 2,
+        width: 1,
       },
       move: {
         enable: true,
@@ -106,11 +107,11 @@ const App = () => {
       detect_on: 'canvas',
       events: {
         onhover: {
-          enable: true,
+          enable: false,
           mode: 'repulse',
         },
         onclick: {
-          enable: true,
+          enable: false,
           mode: 'push',
         },
         resize: true,
@@ -148,9 +149,9 @@ const App = () => {
     <div>
       <Particles params={particlesOptions} canvasClassName="background-canvas" />
       <div className="container">
-        <div className="has-text-centered">
+        <div className="has-text-centered pt-6">
           <h1 className="title is-1"> Sequence Alignment</h1>
-          <h6 className="subtitle is-6">v 1.0.1 </h6>
+          <h6 className="subtitle is-6">v1.0.1 </h6>
         </div>
         <section className="section">
           <div className="box">
@@ -160,7 +161,7 @@ const App = () => {
                 <input
                   className="input"
                   type="text"
-                  placeholder="AATT"
+                  placeholder="ex. GAWGHEE"
                   onChange={(e) => updateFirstFreq(e)}
                 />
               </div>
@@ -171,7 +172,7 @@ const App = () => {
                 <input
                   className="input"
                   type="text"
-                  placeholder="ATCT"
+                  placeholder="ex. WHEAE"
                   onChange={(e) => updateSecondFreq(e)}
                 />
               </div>
@@ -241,6 +242,7 @@ const App = () => {
             )}
           </div>
         </section>
+        <Footer></Footer>
       </div>
     </div>
   );
