@@ -85,7 +85,8 @@ const Needleman = ({ first_sequence, second_sequence, gap, sub, match, miss }) =
   });
 
   return (
-    <div className="section">
+    <section className="section">
+      <h3 className="title is-3 has-text-centered">Needleman-Wunsch</h3>
       <div className="column">
         <div className="table-container">
           <table
@@ -101,11 +102,11 @@ const Needleman = ({ first_sequence, second_sequence, gap, sub, match, miss }) =
       </div>
 
       <div className="has-text-centered">
-        <h4 className="title is-4">Alignment</h4>
-        <h5 className="title is-5">{res_1}</h5>
-        <h5 className="title is-5">{res_2}</h5>
+        <h4 className="has-text-centered title is-4">Alignment</h4>
+        <h5 className="title is-5 has-text-centered">{res_1}</h5>
+        <h5 className="title is-5 has-text-centered">{res_2}</h5>
       </div>
-    </div>
+    </section>
   );
 };
 

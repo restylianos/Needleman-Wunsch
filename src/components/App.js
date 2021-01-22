@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import '../../node_modules/bulma/css/bulma.css';
 import Needleman from './Needleman';
+import { BrowserRouter, Link, Route } from 'react-router-dom';
+import Smith from './Smith';
 
 const App = () => {
   const [firstSequence, setFirstSequence] = useState('');
@@ -32,7 +34,8 @@ const App = () => {
   return (
     <div className="container">
       <div className="has-text-centered">
-        <h1 className="title is-1">Needleman-Wunsch</h1>
+        <h1 className="title is-1"> Sequence Alignment</h1>
+        <h6 className="subtitle is-6">v 1.0.1 </h6>
       </div>
 
       <div className="box">
@@ -99,23 +102,29 @@ const App = () => {
             </div>
           </div>
         </div>
+
         {firstSequence && secondSequence && (
-          <Needleman
-            first_sequence={firstSequence}
-            second_sequence={secondSequence}
-            gap={gap}
-            sub={sub}
-            match={match}
-          ></Needleman>
+          <div className="columns is-fullheight">
+            <div className="column">
+              <Needleman
+                first_sequence={firstSequence}
+                second_sequence={secondSequence}
+                gap={gap}
+                sub={sub}
+                match={match}
+              ></Needleman>
+            </div>
+            <div className="column">
+              <Smith
+                first_sequence={firstSequence}
+                second_sequence={secondSequence}
+                gap={gap}
+                sub={sub}
+                match={match}
+              ></Smith>
+            </div>
+          </div>
         )}
-        {/* <div className="has-text-centered">
-          <button
-            className="button is-link is-centered is-large is-light"
-            onClick={(e) => handleClick(e)}
-          >
-            GO
-          </button>
-        </div> */}
       </div>
     </div>
   );
