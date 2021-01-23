@@ -1,0 +1,7 @@
+.darkmode {
+  filter: invert(100%);
+}
+
+.box.darkmode {
+  background-color: aqua !important;
+}
