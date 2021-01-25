@@ -71,7 +71,6 @@ const Needleman = ({ first_sequence, second_sequence, gap, sub, match }) => {
     });
 
     const renderedTtitles_y = [...final_seq_1].map((amino, aminoIndex) => {
-      //console.log(amino);
       return <th key={aminoIndex + 20}>{amino}</th>;
     });
 

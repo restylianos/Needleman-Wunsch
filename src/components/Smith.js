@@ -6,9 +6,7 @@ const Smith = ({ first_sequence, second_sequence, gap, sub, match, miss }) => {
     similarityScoreFunction: (a, b) => (a === b ? match : sub),
     gapScoreFunction: (number) => number * gap,
   });
-  console.log(gap, sub, match);
   const defaultResult = defaultAligner.align(first_sequence, second_sequence);
-  console.log();
   const res_sequences = defaultResult.alignedSequences;
 
   // console.log(defaultResult.alignment);
