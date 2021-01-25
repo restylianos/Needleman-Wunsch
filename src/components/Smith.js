@@ -3,10 +3,10 @@ const SWaligner = require('graphic-smith-waterman');
 
 const Smith = ({ first_sequence, second_sequence, gap, sub, match, miss }) => {
   const defaultAligner = SWaligner({
-    similarityScoreFunction: (a, b) => (a === b ? 15 : -8),
-    gapScoreFunction: (number) => -(number * 8),
+    similarityScoreFunction: (a, b) => (a === b ? match : sub),
+    gapScoreFunction: (number) => number * gap,
   });
-
+  console.log(gap, sub, match);
   const defaultResult = defaultAligner.align(first_sequence, second_sequence);
   console.log();
   const res_sequences = defaultResult.alignedSequences;

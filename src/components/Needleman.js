@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 
-const Needleman = ({ first_sequence, second_sequence, gap, sub, match, miss }) => {
+const Needleman = ({ first_sequence, second_sequence, gap, sub, match }) => {
   const seq1 = first_sequence;
   const seq2 = second_sequence;
 
@@ -64,7 +64,6 @@ const Needleman = ({ first_sequence, second_sequence, gap, sub, match, miss }) =
       </th>
     );
   });
-  console.log(final_seq_1);
 
   const renderedResults = arr.map((row, index) => {
     const res = row.map((item, secondIndex) => {

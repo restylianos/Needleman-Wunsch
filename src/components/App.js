@@ -35,18 +35,32 @@ const App = () => {
   };
 
   const updateUserGap = (e) => {
-    setGap(e.target.value);
+    let res = parseInt(e.target.value);
+    if (isNaN(res)) {
+      return;
+      //debug for updating values
+    }
+    setGap(res);
   };
 
   const updateUserMatch = (e) => {
-    setMatch(e.target.value);
+    let res = parseInt(e.target.value);
+    if (isNaN(res)) {
+      return;
+      //debug for updating values
+    }
+    setMatch(res);
   };
 
   const updateUserSub = (e) => {
-    setSub(e.target.value);
+    let res = parseInt(e.target.value);
+    if (isNaN(res)) {
+      return;
+      //debug for updating values
+    }
+    setSub(res);
   };
 
-  console.log(particlesOptions);
   return (
     <div>
       <Particles
