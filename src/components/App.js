@@ -19,6 +19,8 @@ const App = () => {
   const [match, setMatch] = useState(15);
   const [sub, setSub] = useState(-3);
   const [darkTheme, setDarkTheme] = useState(false);
+  const [firstSequenceValidate, setFirstSequenceValidate] = useState('true');
+  const [secondSequenceValidate, setSecondSequenceValidate] = useState('true');
 
   if (darkTheme) {
     document.documentElement.classList.add('darkmode');
@@ -35,10 +37,20 @@ const App = () => {
     }
   };
   const updateFirstFreq = (e) => {
+    if (!checkInput(e.target.value) && e.target.value !== '') {
+      setFirstSequenceValidate(false);
+      return;
+    }
+    setFirstSequenceValidate(true);
     setFirstSequence(e.target.value.toUpperCase());
   };
 
   const updateSecondFreq = (e) => {
+    if (!checkInput(e.target.value) && e.target.value !== '') {
+      setSecondSequenceValidate(false);
+      return;
+    }
+    setSecondSequenceValidate(true);
     setSecondSequence(e.target.value.toUpperCase());
   };
 
@@ -69,6 +81,15 @@ const App = () => {
     setSub(res);
   };
 
+  const checkInput = (inputString) => {
+    let letters = /^[a-zA-Z]+$/;
+    if (letters.test(inputString)) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
   return (
     <div>
       <Particles
@@ -92,6 +113,9 @@ const App = () => {
                   onChange={(e) => updateFirstFreq(e)}
                 />
               </div>
+              {!firstSequenceValidate && (
+                <p class="help is-danger"> Invalid Input: only Latin letters allowed</p>
+              )}
             </div>
             <div className="field">
               <label className="label">Second sequence</label>
@@ -103,6 +127,9 @@ const App = () => {
                   onChange={(e) => updateSecondFreq(e)}
                 />
               </div>
+              {!secondSequenceValidate && (
+                <p class="help is-danger"> Invalid Input: only Latin letters allowed</p>
+              )}
             </div>
             <div className="columns">
               <div className="column">
@@ -146,7 +173,7 @@ const App = () => {
               </div>
             </div>
 
-            {firstSequence && secondSequence && (
+            {firstSequence && secondSequence && firstSequenceValidate && secondSequenceValidate && (
               <div className="columns is-fullheight">
                 <div className="column">
                   <Needleman
@@ -179,7 +206,7 @@ const App = () => {
             <br></br>
             <br></br>
             <a className="has-text-centered" onClick={(e) => changeModalState(e)}>
-              Learn more
+              About
             </a>
             <div class={`modal ${modal}`}>
               <div class="modal-background"></div>
@@ -195,9 +222,9 @@ const App = () => {
                   ></button>
                 </header>
                 <section className={`modal-card-body $`}>
-                  This project was made to automate an exercise of the bioninformatics class. After
-                  typing the the first and the second sequence two functions are triggered. The
-                  following algorithms are used:
+                  This project was made to automate a bioinformatics class exercise. After typing
+                  the the first and the second sequence two functions are triggered. The following
+                  algorithms are used:
                   <div className="content">
                     <ol className="is-lower-roman">
                       <li>
