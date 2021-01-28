@@ -1,10 +1,3 @@
--. .-.   .-. .-.   .-. .-.   .
-  \   \ /   \   \ /   \   \ /
- / \   \   / \   \   / \   \
-~   `-~ `-`   `-~ `-`   `-~ `-
-
-React App <<Sequence Alignment>> 
-
 Live link -> https://distracted-roentgen-bac46c.netlify.app/
 
 General information:
@@ -21,8 +14,3 @@ Latest fixes:
 - Added about section for more information
 
 Made with React && Bulma
-
--. .-.   .-. .-.   .-. .-.   .
-  \   \ /   \   \ /   \   \ /
- / \   \   / \   \   / \   \
-~   `-~ `-`   `-~ `-`   `-~ `-
